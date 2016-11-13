@@ -1,0 +1,23 @@
+{% load humanize %}
+<html>
+<head>
+  <title>My First Django page</title>
+</head>
+<body>
+  {% if request.user.is_authenticated %}
+  <p>
+    Hello <b>{{ request.user.username | title }}</b>, last logged in at {{ request.user.last_login | date:"D d M Y" }}
+  </p>
+  {% else %}
+  <p>
+    Welcome guest
+  </p>
+  {% endif %}
+  <main>
+    <h4>There are {{ persons.count | apnumber | title }} persons in Database{{ persons.count | pluralize }}</h4>
+    {% for person in persons %}
+    <li>{{ person.name }}</li>
+    {% endfor %}
+  </main>
+</body>
+</html>
