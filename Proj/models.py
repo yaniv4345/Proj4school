@@ -9,11 +9,11 @@ class person(models.Model):
     id_number = models.IntegerField()
     address = models.CharField(max_length=70)
     age = models.IntegerField()
-    date_added = models.DateField(null=True, blank=True)
+    date_added = models.DateField(default=now())
 
     def __str__(self):
         return self.name
-    def save(self, *args, **kwargs):
-        self.date_added = now()
-
-        super(person,self).save(*args,**kwargs)
+    # def save(self, *args, **kwargs):
+    #     self.date_added = now()
+    #
+    #     super(person,self).save(*args,**kwargs)
