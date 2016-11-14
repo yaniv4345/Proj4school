@@ -1,23 +1,16 @@
 {% load humanize %}
-<html>
-<head>
-  <title>My First Django page</title>
-</head>
-<body>
-  {% if request.user.is_authenticated %}
+{% block content %}
+     <form type="get" action="." style="margin: 0">
+      <input  id="search_box" type="text" name="search_box"  placeholder="Search..." >
+      <button id="search_submit" type="submit" >Submit</button>
+  </form>
+    {% if person %}
   <p>
-    Hello <b>{{ request.user.username | title }}</b>, last logged in at {{ request.user.last_login | date:"D d M Y" }}
-  </p>
-  {% else %}
-  <p>
-    Welcome guest
+    {% for k, v in person.items %}
+    <ul>
+      {{ k | title }}: {{ v }}
+    </ul>
+    {% endfor %}
   </p>
   {% endif %}
-  <main>
-    <h4>There are {{ persons.count | apnumber | title }} persons in Database{{ persons.count | pluralize }}</h4>
-    {% for person in persons %}
-    <li>{{ person.name }}</li>
-    {% endfor %}
-  </main>
-</body>
-</html>
+  {% endblock %}
