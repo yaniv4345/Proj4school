@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from Proj.views import list_persons , PersonDetails, update
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^update/', update ,name='update'),
@@ -23,3 +25,4 @@ urlpatterns = [
     url(r'^person/(?P<pk>[-\w]+)/$', PersonDetails.as_view(), name='person-detail'),
     # url(r'^$', home, name='home'),
 ]
+urlpatterns += staticfiles_urlpatterns()

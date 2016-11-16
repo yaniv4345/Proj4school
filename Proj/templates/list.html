@@ -2,16 +2,20 @@
 {% load humanize %}
 {% block content %}
      <form type="get" action="." style="margin: 0">
-      <input  id="search_box" type="text" name="search_box"  placeholder="Search..." >
-      <button id="search_submit" type="submit" >Submit</button>
+      <input  id="search_box" type="text" name="search_box"  placeholder="Please enter ID number" >
+      <button class="btn btn-xs btn-danger" id="search_submit" type="submit" >Submit</button>
   </form>
     {% if person %}
-  <p>
+    <br />
+    <p>
+      {{ person }}
+    </p>
+  <table class="table table-striped">
     {% for k, v in person.items %}
-    <ul>
-      {{ k | title }}: {{ v }}
-    </ul>
+    <tr>
+      <td>{{ k }}</td><td>{{ v }}</td>
+    </tr>
     {% endfor %}
-  </p>
+  </table>
   {% endif %}
   {% endblock %}

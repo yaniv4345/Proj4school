@@ -14,6 +14,7 @@ class person(models.Model):
     def __str__(self):
         return self.name
 
+
     # def get_by_id(self,num):
     #     return self.person(id_number=num)
     # def save(self, *args, **kwargs):
