@@ -1,28 +1,16 @@
-"""Project URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.10/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.conf.urls import url, include
-    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
-"""
 from django.conf.urls import url
 from django.contrib import admin
-from Proj.views import list_persons , PersonDetails, update
+from django.contrib.auth import views as auth_views
+from Proj.views import list_persons, insertForm, home,Person2add, listAll
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
+    url(r'^logout/', auth_views.logout ,{"next_page" : "home"} ,name='logout'),
+    url(r'^login/', auth_views.login ,{"template_name" : "login.html"} ,name='login'),
     url(r'^admin/', admin.site.urls),
-    url(r'^update/', update ,name='update'),
-    url(r'^$', list_persons, name='persons'),
-    url(r'^person/(?P<pk>[-\w]+)/$', PersonDetails.as_view(), name='person-detail'),
-    # url(r'^$', home, name='home'),
+    url(r'^insert/', Person2add ,name='insert'),
+    url(r'^$', home, name='home'),
+    url(r'^person/$', list_persons, name='persons'),
+    url(r'^list/$', listAll, name='list'),
 ]
-urlpatterns += staticfiles_urlpatterns()

@@ -17,11 +17,19 @@
     <div  class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
         <li>
-      <a href="{% url 'persons' %}" >HOME</a>
+      <a href="{% url 'home' %}" >HOME</a>
         </li>
         <li>
-      <a  href="{% url 'update' %}" >UPDATE</a>
+      <a href="{% url 'persons' %}" > SEARCH</a>
+        </li>
+          {% if request.user.is_authenticated %}
+        <li>
+      <a  href="{% url 'insert' %}" >INSERT</a>
     </li>
+        <li>
+      <a  href="{% url 'list' %}" >LIST ALL</a>
+    </li>
+    {% endif %}
     </ul>
     </div>
   </br>
@@ -30,11 +38,13 @@
     <div class="welcome">
       {% if request.user.is_authenticated %}
       <p>
-        Hello <b>{{ request.user.username | title }}</b>, last logged in at {{ request.user.last_login | date:"D d M Y" }}
+        Hello <b><i>{{ request.user.username | title }}</i></b>, last logged in at {{ request.user.last_login | date:"D d M Y" }}
+        <a href="{% url 'logout' %}">Logout</a>
       </p>
       {% else %}
       <p>
-        Welcome guest
+        Welcome<b> guest</b>
+        <a href="{% url 'login' %}">Login</a>
       </p>
       {% endif %}
     </div>

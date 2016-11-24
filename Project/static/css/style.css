@@ -38,3 +38,19 @@ table {
 #search_box{
 	width: 200px;
 }
+input {
+	width: 200px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: textfield;
+  margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+#sbmt{
+	background-color: white;
+	border: 0px;
+}

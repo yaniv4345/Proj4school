@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" action="{% url 'login' %}">
+  {% csrf_token %}
+  <table class="table">
+    <tr>
+  <td><label>{{ form.username.label }}</label></td>
+    <td>{{ form.username }}</td>
+  </tr>
+  <tr>
+    <td><label>{{ form.password.label }}</label></td>
+    <td>{{ form.password }}</td>
+  </tr>
+</table>
+    {% if form.errors %}
+    <div class="form-error">
+      <span>Your username and password didn't match. Please try again.</span>
+    </div>
+    {% endif %}
+<input type="hidden" name="next" value="{% url 'home' %}" />
+<input type="submit" value="login" />
+</form>
+{% endblock %}

@@ -2,20 +2,29 @@
 {% load humanize %}
 {% block content %}
      <form type="get" action="." style="margin: 0">
-      <input  id="search_box" type="text" name="search_box"  placeholder="Please enter ID number" >
+      <input  id="search_box" type="number" name="search_box" placeholder="Please enter ID number" required>
       <button class="btn btn-xs btn-danger" id="search_submit" type="submit" >Submit</button>
   </form>
     {% if person %}
     <br />
-    <p>
-      {{ person }}
-    </p>
   <table class="table table-striped">
-    {% for k, v in person.items %}
+    <thead>
+        <th> Student Name </th><th> ID Number </th><th> Age </th><th> Address </th><th> Added Date </th>
+          </thead>
+    <tbody>
+    {% for student in person %}
     <tr>
-      <td>{{ k }}</td><td>{{ v }}</td>
+      <td> {{ student.name }} </td><td> {{ student.id_number }} </td><td> {{ student.age }} </td><td> {{ student.address }} </td><td> {{ student.date_added | date:"D d M Y" }} </td>
     </tr>
     {% endfor %}
+  </tbody>
   </table>
+  {% elif none_id %}
+</br>
+<script type="text/javascript">
+      var text = "Can't find a student with id number {{ none_id }}.\n Please try again.";
+      alert(text);
+</script>
+</br>
   {% endif %}
   {% endblock %}

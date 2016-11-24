@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block content %}
+{% if person %}
+  <table class="table table-striped">
+    <thead>
+        <th> Student Name </th><th> Student ID Number </th><th> Student Age </th><th> Student Address </th><th> Added Date </th>
+          </thead>
+    <tbody>
+    {% for student in person %}
+    <tr>
+      <td> {{ student.name }} </td><td> {{ student.id_number }} </td><td> {{ student.age }} </td><td> {{ student.address }} </td><td> {{ student.date_added |date:"D d M Y" }} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+  {% endif %}
+  {% endblock %}

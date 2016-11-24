@@ -148,7 +148,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
-#STATIC_ROOT = '/root/Projects/Project/Project/static/' 
+#STATIC_ROOT = '/root/Projects/Project/Project/static/'
 
 STATIC_URL = '/static/'
 
@@ -162,3 +162,10 @@ STATICFILES_DIRS = (
 	#'/root/Projects/Project/Project/static/',
 	os.path.join(BASE_DIR, 'Project', 'static'),
 )
+# TEMPLATE_CONTEXT_PROCESSORS = (
+#     "django.core.context_processors.auth",
+#     "django.core.context_processors.debug",
+#     "django.core.context_processors.i18n",
+#     "django.core.context_processors.media",
+#     "django.core.context_processors.request",
+# )
