@@ -54,3 +54,10 @@ input[type=number] {
 	background-color: white;
 	border: 0px;
 }
+.errorlist {
+		list-style-type: none;
+		border: 2px red solid;
+		color: red;
+		text-align: center;
+		font-weight: bolder;
+}

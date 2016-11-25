@@ -9,7 +9,6 @@ def list_persons(request):
     none = search_query
     if not search_query:
         context = {
-
         }
     else:
         persons = person.objects.filter(id_number=search_query).values('name', 'id_number', 'address', 'age','date_added')
@@ -36,9 +35,12 @@ def Person2add(request):
             newPerson.address = form.cleaned_data['address']
             newPerson.save()
             return redirect('home')
+        else:
+            return render(request, 'insert.html',{'form': form})
     else:
         form = insertForm()
         content = {
+            "person" : person,
             "form" : form,
         }
         return render(request,"insert.html",content)
