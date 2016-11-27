@@ -1,0 +1,7 @@
+Django==1.10.3
+django-debug-toolbar==1.6
+pytz==2016.7
+simplejson==3.10.0
+sqlparse==0.2.2
+wheel==0.29.0
+wsgiref==0.1.2
