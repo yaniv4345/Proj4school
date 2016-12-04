@@ -7,37 +7,37 @@ Install ptyhon-virtualenv and git from your package manager.
 
 Create virtual enviroment:
 
-   virtualenv DIR_NAME
+    virtualenv DIR_NAME
 
 Clone this project:
 
-   git clone https://github.com/yaniv4345/Proj4school.git
+    git clone https://github.com/yaniv4345/Proj4school.git
 
 Copy everything from Proj4school into virtualenv dir:
 
-   cp -r Proj4school/* DIR_NAME/
+    cp -r Proj4school/* DIR_NAME/
 
 Activate virtualenv:
 
-   source DIR_NAME/bin/activate
+    source DIR_NAME/bin/activate
 
 Install requirements:
 
-   pip install -r requirements.txt
+    pip install -r requirements.txt
 
 Create database:
 
-   python manage.py makemigrations
+    python manage.py makemigrations
  
- Migrate database:
+Migrate database:
  
     python manage.py migrate
    
- Create superuser:
+Create superuser:
  
-    python manage.py createsuperuser
+     python manage.py createsuperuser
  
- Run server:
+Run server:
  
-    python manage.py runserver 0.0.0.0:8000
+     python manage.py runserver 0.0.0.0:8000
    
