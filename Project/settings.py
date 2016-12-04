@@ -25,15 +25,9 @@ SECRET_KEY = 'a!(*p(tm$eef4lke263))#mv)o=_^j+_o^0u!s-fhv88njblxn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-INTERAL_IPS = ('10.0.0.8','127.0.0.1')
+INTERAL_IPS = ('127.0.0.1')
 
-ALLOWED_HOSTS = [u'10.0.0.8',u'10.0.0.*',u'localhost']
-#ALLOWED_HOSTS = [u'10.0.0.8','127.0.0.1']
-#def show_toolbar(request):
-#    return True
-#DEBUG_TOOLBAR_CONFIG = {
-#    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
-#}
+ALLOWED_HOSTS = [u'*']
 
 DEBUG_TOOLBAR_PANELS = [
 	'debug_toolbar.panels.versions.VersionsPanel',
